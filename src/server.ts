@@ -483,10 +483,13 @@ wsInstance.app.ws("/socket", async (ws: WebSocket, req: Request) => {
   }
   var lang = 'en';
   if (brainVals) {
-    if (brainVals.prompt) myPrompt = brainVals.prompt;
-    if (brainVals.language) {
-      lang = brainVals.language;
-      switch (('' + brainVals.lang).toLowerCase()) {
+    if (brainVals.prompt) {
+      myPrompt = brainVals.prompt;
+      myPrompt = myPrompt + "\nRespond in a language appropriate to the user's needs.\nALWAYS call the ceecee tool before transferring the call to an agent, after final confirmation of the user's intentions, when we know the user wants to talk to an agent, make a purchase, requires support or help, or when we have determined the primary skill needed to meet the user's needs.\n";
+    }
+    if (brainVals.agent?.language) {
+      lang = brainVals.agent?.language;
+      switch (('' + lang).toLowerCase()) {
         case 'en':
           voice = 'tiffany';
           if (gender == 'male') voice = 'matthew';
