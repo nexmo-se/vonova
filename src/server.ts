@@ -388,7 +388,7 @@ wss.on("connection", async (ws: WebSocket, req: IncomingMessage | undefined) => 
         }
         audioBuffer = audioBuffer.slice(SAMPLES_PER_CHUNK);
         if (!(sndcnt++ % 50)) {
-          console.log("Sent up the socket: ", sndcnt);
+          // console.log("Sent up the socket: ", sndcnt);
         }
       }
     }, 18);
@@ -406,11 +406,7 @@ wss.on("connection", async (ws: WebSocket, req: IncomingMessage | undefined) => 
       );
 
       if (audioBuffer && audioBuffer.length && (buffer.length / Int16Array.BYTES_PER_ELEMENT > 640)) {
-        console.log(
-          "New audio sample: ",
-          buffer.length / Int16Array.BYTES_PER_ELEMENT,
-          audioBuffer.length
-        );
+        //console.log(  "New audio sample: ", buffer.length / Int16Array.BYTES_PER_ELEMENT, audioBuffer.length  );
       }
       let combinedSamples: Int16Array;
       if (audioBuffer) {
@@ -621,8 +617,8 @@ wss.on("connection", async (ws: WebSocket, req: IncomingMessage | undefined) => 
 /* SERVER LOGIC */
 setInterval(() => {
   wss.clients.forEach(function each(client: any) {
-    console.log("GOT OPEN SOCKET!!! ", client.readyState);
     if (client.readyState === client.CLOSING) {
+    console.log("GOT OPEN SOCKET in CLOSING state!!! ", client.readyState);
       client.terminate();
     }
   });
