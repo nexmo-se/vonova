@@ -25,7 +25,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 require("events").EventEmitter.defaultMaxListeners = 0;
+const os = require('os');
+const podName = os.hostname();
 
+console.log(`Pod Name (Identifier): ${podName}`);
 // Local session state type
 interface SessionState {
   needsHangup: boolean;
@@ -625,7 +628,7 @@ setInterval(() => {
 }, 1000);
 
 const server = httpServer.listen(port, () =>
-  console.log(`Original server listening on port ${port}`)
+  console.log(`Original Vonic server listening on port ${port}`)
 );
 
 // Gracefully shut down.
