@@ -22,6 +22,7 @@
     "express": "^5.1.0",
     "express-ws": "^5.0.2",
     "mcp-client": "^1.13.1",
+    "n": "^10.2.0",
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
