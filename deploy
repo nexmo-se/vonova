@@ -2,4 +2,3 @@ cd ./src
 npx tsc --outdir js
 cd ..
 vcr deploy
-cd ..
