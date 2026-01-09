@@ -80,7 +80,6 @@ const bedrockClient = new NovaSonicBidirectionalStreamClient({
   },
 });
 
-let gTemp = 0.2;
 const sessions: Record<string, SessionState> = {};
 const finals: Record<string, boolean> = {};
 
@@ -157,6 +156,11 @@ wss.on("connection", async (ws: WebSocket, req: IncomingMessage | undefined) => 
   const temp = parseFloat(String(q.temp ?? "0.01"));
   const promptId = String(q.promptId ?? "");
   console.log("Using passed in promptId: ", promptId);
+  // At this point, you can use promptId to fetch a specific prompt from a database or service 
+  if (promptId) {
+    // For demonstration, we'll just append the promptId to the default prompt
+    myPrompt = `This is a custom prompt for promptId: ${promptId}. ` + currentPrompt;
+  }
 
   const utterances: any[] = [];
 
