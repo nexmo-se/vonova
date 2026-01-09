@@ -48,15 +48,15 @@ It is important that the content type is set to the above specifications
 
 For Video AudioConnector, to connect use the following
 
-   vonage.video.connectToWebsocket(
-      sessionId,
-      token,
-      {
-        uri: URL_OF_YOUR_CONNECTOR_WEBSOCKET+'/optional_uri_parameters',
-        audioRate: 16000,
-        bidirectional: true,
-        headers: { sessionid: sessionId, type: "AudioConnector" },
-      })
+      vonage.video.connectToWebsocket(
+         sessionId,
+         token,
+         {
+            uri: URL_OF_YOUR_CONNECTOR_WEBSOCKET+'/optional_uri_parameters',
+            audioRate: 16000,
+            bidirectional: true,
+            headers: { sessionid: sessionId, type: "AudioConnector" },
+         })
 
 ## URI Parameters
 The URI parameters allow you to pass information into the connector, informing it how to behave.  These are optional, and some will require implementation inside the connector to meet your own requirements
