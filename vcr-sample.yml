@@ -1,0 +1,15 @@
+project:
+  name: vonova
+instance:
+  name: vonova
+  runtime: nodejs22
+  region: aws.use1
+  entrypoint:
+    - node
+    - src/js/server.js
+  application-id: XXXX
+debug:
+  application-id: XXXX
+  entrypoint:
+    - nodemon
+    - src/server.ts
