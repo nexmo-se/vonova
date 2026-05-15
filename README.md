@@ -78,3 +78,5 @@ The URI parameters allow you to pass information into the connector, informing i
   promptId=xxxxx : You can implement a way of controlling the system prompt, and you can specify which prompt to use with this parameter.  For example, if you have a database of prompts, you can indicate which one you would like to use for this connection by passing in a promptId, then looking up that id in your database.  If nothing specified, the conector will use the DefaultSystemPrompt from constants.ts (OPTIONAL)
 
 
+
+
